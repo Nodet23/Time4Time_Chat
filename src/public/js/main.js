@@ -10,7 +10,10 @@ const $chat= $('#chat');
 //eventos
 $messageForm.submit( e =>  {
     e.preventDefault();
-    console.log($messageBox.val());
+    socket.emit('send message', $messageBox.val());
+    $messageBox.val('');
 });
-
+socket.on('new message', function (data){
+$chat.append(data + '<br/>'); // añade al chat el mensaje
+})
 })
