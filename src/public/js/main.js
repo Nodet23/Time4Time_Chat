@@ -41,5 +41,13 @@ $messageForm.submit( e =>  {
 });
 socket.on('new message', function (data){
 $chat.append(data + '<br/>'); // añade al chat el mensaje
-})
-})
+});
+
+socket.on('usernames', data => {
+    let html = '';
+    for(i = 0; i < data.length; i++) {
+      html += `<p><i class="fas fa-user"></i> ${data[i]}</p>`; 
+    }
+    $users.html(html);
+  });		   
+  });

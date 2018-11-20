@@ -14,6 +14,7 @@ let nicknames = [];
               cb(true);
               socket.nickname = data;
               nicknames.push(socket.nickname);
+              updateNicknames();
             }
     
         });
@@ -26,7 +27,18 @@ let nicknames = [];
 
         io.sockets.emit('new message', data);  //enviar a todos los clientes
         });
+    
 
-    });
+        socket.on('disconnect', data =>{
+            if(!socket.nickname) return; //para comprobar si no tiene nicknamee evitar buscar
+            nicknames.splice(nicknames.indexOf(socket.nickname), 1);    //eelimina x indice
+          updateNicknames();
+        });
+
+         function updateNicknames() {
+             io.sockets.emit('usernames', nicknames);
+         }
+
+        });
 
 }
