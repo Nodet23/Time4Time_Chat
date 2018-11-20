@@ -11,7 +11,8 @@
     <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
     <script src="/js/main.js" charset="utf-8"></script>
     <script src="/socket.io/socket.io.js" charset="utf-8"></script>
-    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
 </head>
 <body>
    
@@ -19,8 +20,24 @@
         <a class="navbar-brand mx-auto" href="/">Time4Time Chat</a>
     </nav>
 
-<div class="container">
-    <div class="col -md-6 mt-4">
+    <div class="card col-md-4 mt-5 mx-auto" id="nickWrap">
+        <div class="card-heaeder">
+            <h3> Enter your usrname</h3>
+        </div>
+        <p id="nickerror"></p>
+        <div class="card-body">
+            <form id="nickForm">
+                <input type="text" id="nickname" class="form-control">
+                <button type="submit" class="btn btn-warning mt-2">
+                        <i class="fas fa-location-arrow"></i> Send
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+<div class="container" id="contentWrap">
+    <div class="col -md-6 offset-md mt-4">
         <div class="card">
             <div class="card-header">
                 <g4>let's chat</g4>
@@ -29,13 +46,27 @@
             <form id="message-form" class="card-footer">
                <div class="input-group">
                 <input type="text" id="message" class="form-control">
-                <div class="input-group.append">
-                <input type="submit" class="btn btn-warning">
+                <div class="input-group-append">
+                <button type="submit" class="btn btn-warning">
+                <i class="fas fa-location-arrow"></i> Send
+                </button>
             </div>
                </div>
             </form>
         </div>
     </div>
+    <div class="card col -md -3">
+        <div class="card-hader">
+            <h3>Usrs</h3>
+        </div>
+        <div class="card-body">
+            <div id="usernamees">
+                <!--aqui se llnaran los ids-->
+            </div>
+        </div>
+    </div>
 </div>
+
+
 </body>
 </html>
