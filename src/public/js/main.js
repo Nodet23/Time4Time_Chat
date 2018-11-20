@@ -14,13 +14,23 @@ const $nickError = $('#nickError');
 const $users = $('#usernames');
 
 $nickForm.submit(e => {
+
     e.preventDefault();
-    console.log("enviadando le nick");
+    console.log("enviando user");
     socket.emit('new user', $nickname.val(), data => {
-
+      if(data) {
+        $('#nickWrap').hide();
+        $('#contentWrap').show();
+      } else {
+        $nickError.html(`
+          <div class="alert alert-danger">
+            username already in use
+          </div>
+        `);
+      }
     });
-
-})
+    $nickname.val('');
+  });
 
 
 //eventos

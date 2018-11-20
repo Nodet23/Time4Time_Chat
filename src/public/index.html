@@ -20,11 +20,11 @@
         <a class="navbar-brand mx-auto" href="/">Time4Time Chat</a>
     </nav>
 
-    <div class="card col-md-4 mt-5 mx-auto" id="nickWrap">
-        <div class="card-heaeder">
+    <div class="card col-md-4 mx-auto mt-5" id="nickWrap">
+        <div class="card-header">
             <h3> Enter your usrname</h3>
         </div>
-        <p id="nickerror"></p>
+        <p id="nickError"></p>
         <div class="card-body">
             <form id="nickForm">
                 <input type="text" id="nickname" class="form-control">
@@ -37,15 +37,20 @@
 
 
 <div class="container" id="contentWrap">
-    <div class="col -md-6 offset-md mt-4">
+    <div class="row mt-5">
+
+    <div class="col -md-6 offset-md-1">
+        <!-- chat-->
         <div class="card">
+            <!--titulo c-->
             <div class="card-header">
-                <g4>let's chat</g4>
+                <h3>chat</h3>
             </div>
+            <!-- body c-->
             <div id="chat" class="card-body"></div>
             <form id="message-form" class="card-footer">
                <div class="input-group">
-                <input type="text" id="message" class="form-control">
+                <input type="text" id="message" class="form-control"/>
                 <div class="input-group-append">
                 <button type="submit" class="btn btn-warning">
                 <i class="fas fa-location-arrow"></i> Send
@@ -55,16 +60,16 @@
             </form>
         </div>
     </div>
-    <div class="card col -md -3">
-        <div class="card-hader">
-            <h3>Usrs</h3>
-        </div>
-        <div class="card-body">
-            <div id="usernamees">
-                <!--aqui se llnaran los ids-->
+    
+     <!-- USERS -->
+     <div class="card col-md-3">
+            <div class="card-header">
+              <h3>Users</h3>
             </div>
-        </div>
-    </div>
+            <div class="card-body">
+              <div id="usernames"></div>
+            </div>
+</div>
 </div>
 
 
