@@ -39,8 +39,11 @@ $messageForm.submit( e =>  {
     socket.emit('send message', $messageBox.val());
     $messageBox.val('');
 });
+
+
 socket.on('new message', function (data){
-$chat.append(data + '<br/>'); // añade al chat el mensaje
+//$chat.append(data + '<br/>'); // añade al chat el mensaje
+$chat.append('<b>' +data.nick + ': </b>' + data.msg + '<br/>');
 });
 
 socket.on('usernames', data => {

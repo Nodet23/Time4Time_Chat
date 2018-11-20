@@ -20,14 +20,12 @@ let nicknames = [];
         });
 
 
-
-
-        socket.on('send message', function(data){
-            console.log(data);
-
-        io.sockets.emit('new message', data);  //enviar a todos los clientes
+        socket.on('send message', data => {
+            io.sockets.emit('new message', {
+                msg: data,
+                nick: socket.nickname
+            });
         });
-    
 
         socket.on('disconnect', data =>{
             if(!socket.nickname) return; //para comprobar si no tiene nicknamee evitar buscar
